@@ -450,7 +450,7 @@
     for i in range(10):
         print(fibonacci(i), end=" ")   # 0 1 1 2 3 5 8 13 21 34
 
-## Check the Even and Odd number -- array
+## 39.Check the Even and Odd number -- array
     arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     for num in arr:
         print(f"{num} is {'Even' if num % 2 == 0 else 'Odd'}")

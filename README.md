@@ -1,6 +1,6 @@
 # Python-Programms_26
 ## 1. Reverse a String
-  # Using reversed() + join
+  S = "Happy Coding"
   reversed_s = "".join(reversed(s))
   reversed_s = ""
   for char in s:

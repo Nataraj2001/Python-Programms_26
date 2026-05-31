@@ -418,6 +418,41 @@
     print(f"Hexadecimal : {hexadecimal}")
     print(f"Octal       : {octal}")
 
-## 36. 
+## 36. Removing the dublicate element in an array 
+    arr = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]
+    result = []
+    for num in arr:
+        if num not in result:
+            result.append(num)
+    print(f"Without Duplicates: {result}")  # [3, 1, 4, 5, 9, 2, 6]
+
+## 37. Prime number Check
+    import math
+    num = 29
+    def is_prime(n):
+        if n <= 1:
+            return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+            if n % i == 0:
+                return False
+    return True
+
+    print(f"{num} is {'a Prime' if is_prime(num) else 'Not a Prime'} Number")
+
+## 38. Fibonacci 
+    def fibonacci(n):
+        if n <= 0:
+            return 0
+        if n == 1:
+            return 1
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+    for i in range(10):
+        print(fibonacci(i), end=" ")   # 0 1 1 2 3 5 8 13 21 34
+
+## Check the Even and Odd number -- array
+    arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    for num in arr:
+        print(f"{num} is {'Even' if num % 2 == 0 else 'Odd'}")
 
     

@@ -455,4 +455,48 @@
     for num in arr:
         print(f"{num} is {'Even' if num % 2 == 0 else 'Odd'}")
 
+## Linear Serach -- O(1) - O(n)
+    def linear_search(arr, target):
+        for i in range(len(arr)):
+            if arr[i] == target:
+                return i       # Return index if found
+        return -1              # Return -1 if not found
+    arr    = [3, 1, 4, 1, 5, 9, 2, 6]
+    target = 5
+    result = linear_search(arr, target)
+    if result != -1:
+        print(f"Array   : {arr}")
+        print(f"Target  : {target}")
+        print(f"Found at index : {result}")
+    else:
+        print(f"Target {target} not found in array")
+
+## Binary Search -- O(1) -- O(log n)
+    def binary_search(arr, target):
+        left  = 0
+        right = len(arr) - 1
+
+        while left <= right:
+            mid = (left + right) // 2     # Find middle index
+            if arr[mid] == target:
+                return mid                 # Target found
+            elif arr[mid] < target:
+                left = mid + 1             # Search right half
+            else:
+                right = mid - 1            # Search left half
+
+        return -1                          # Target not found
+
+    arr    = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    target = 5
+
+    result = binary_search(arr, target)
+
+    if result != -1:
+        print(f"Array          : {arr}")
+        print(f"Target         : {target}")
+        print(f"Found at index : {result}")
+    else:
+        print(f"Target {target} not found in array")
+
     

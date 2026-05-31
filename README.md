@@ -174,7 +174,7 @@
     arr = [3, 1, 4, 1, 5, 9, 2, 6]
     print(f"Merge Sort: {merge_sort(arr)}")  # [1, 1, 2, 3, 4, 5, 6, 9]
 
-## Quick Sort :- O(n log n) / O(n log n) / O(n²)
+## 20 .Quick Sort :- O(n log n) / O(n log n) / O(n²)
     Chooses a pivot and partitions the array.
     def quick_sort(arr):
         if len(arr) <= 1:
@@ -186,3 +186,238 @@
         return quick_sort(left) + mid + quick_sort(right)
     arr = [3, 1, 4, 1, 5, 9, 2, 6]
     print(f"Quick Sort: {quick_sort(arr)}")  # [1, 1, 2, 3, 4, 5, 6, 9]
+
+## 21. Heap Sort -- O(n log n) / O(n log n) / O(n log n)
+    def heapify(arr, n, i):
+        largest = i        # Root
+        left    = 2 * i + 1  # Left Child
+        right   = 2 * i + 2  # Right Child
+         Check if left child is larger than root
+        if left < n and arr[left] > arr[largest]:
+            largest = left
+         Check if right child is larger than largest
+        if right < n and arr[right] > arr[largest]:
+            largest = right
+        If largest is not root, swap and heapify
+        if largest != i:
+            arr[i], arr[largest] = arr[largest], arr[i]
+            heapify(arr, n, largest)
+    def heap_sort(arr):
+        n = len(arr)
+        Build Max Heap
+        for i in range(n // 2 - 1, -1, -1):
+            heapify(arr, n, i)
+
+        Extract elements from heap one by one
+        for i in range(n - 1, 0, -1):
+            arr[0], arr[i] = arr[i], arr[0]   
+            heapify(arr, i, 0)                
+
+    arr = [3, 1, 4, 1, 5, 9, 2, 6]
+    heap_sort(arr)
+    print(f"Sorted Array: {arr}")
+
+## 22.Counting Sort -- O(n + k)
+    Count occurrences of values
+    # Counting Sort
+    def counting_sort(arr):
+        max_val = max(arr)          
+        count   = [0] * (max_val + 1)  
+        for num in arr:
+            count[num] += 1
+    # Reconstruct sorted array
+        sorted_arr = []
+        for i, c in enumerate(count):
+            sorted_arr.extend([i] * c)
+
+        return sorted_arr
+
+    arr = [4, 2, 2, 8, 3, 3, 1]
+    print(f"Original Array: {arr}")
+    print(f"Sorted  Array : {counting_sort(arr)}")
+
+## 23. Radix Sort -- O(nk)
+    Radix Sort is a non-comparison sorting algorithm that sorts numbers digit by digit, starting from the least significant digit (LSD) to the most significant digit (MSD).
+    # Radix Sort
+    def counting_sort_radix(arr, exp):
+        n      = len(arr)
+        output = [0] * n
+        count  = [0] * 10  
+        # Count occurrences of digits
+        for i in range(n):
+            index = arr[i] // exp % 10
+            count[index] += 1
+        # Change count to actual positions
+        for i in range(1, 10):
+            count[i] += count[i - 1]
+        # Build output array (traverse right to left for stability)
+        for i in range(n - 1, -1, -1):
+            index = arr[i] // exp % 10
+            output[count[index] - 1] = arr[i]
+            count[index]  -= 1
+        # Copy output to arr
+        for i in range(n):
+            arr[i] = output[i]
+
+    def radix_sort(arr):
+        max_val = max(arr)        # Find maximum value
+        exp     = 1               # Start from least significant digit
+        while max_val // exp > 0:
+            counting_sort_radix(arr, exp)
+            exp *= 10             # Move to next digit
+
+    arr = [170, 45, 75, 90, 802, 24, 2, 66]
+    print(f"Original Array: {arr}")
+    radix_sort(arr)
+    print(f"Sorted  Array : {arr}")
+
+## 24. Decimal to Binary Conversion and Count the 0's and 1's
+     --> First Approch
+    num = 29
+    binary = bin(num)[2:]         # Convert to binary (remove '0b' prefix)
+    zeros  = binary.count('0')    # Count 0s
+    ones   = binary.count('1')    # Count 1s
+    print(f"Number         : {num}")
+    print(f"Binary         : {binary}")
+    print(f"Count of 0s    : {zeros}")
+    print(f"Count of 1s    : {ones}")
+
+    --> Second Approch
+    num    = 29
+    binary = ""
+    n      = num
+    while n > 0:
+        binary = str(n % 2) + binary
+        n //= 2
+    zeros  = binary.count('0')
+    ones   = binary.count('1')
+    print(f"Binary      : {binary}")
+    print(f"Count of 0s : {zeros}")
+    print(f"Count of 1s : {ones}")
+
+## 25.Binary to Decimal Conversion
+    --> 1st Approch
+    binary = "11101"
+    decimal = int(binary, 2)      # Convert binary to decimal
+    print(f"Binary  : {binary}")
+    print(f"Decimal : {decimal}")
+
+    --> 2nd Approch
+    binary  = "11101"
+    decimal = 0
+    power   = 0
+    for bit in reversed(binary):
+        decimal += int(bit) * (2 ** power)
+        power   += 1
+    print(f"Binary  : {binary}")
+    print(f"Decimal : {decimal}")
+
+## 26.Decimal to octal
+    --> 1st Apprcoh
+    num = 29
+    octal = oct(num)[2:]          # Convert to octal (remove '0o' prefix)
+    print(f"Decimal : {num}")
+    print(f"Octal   : {octal}")
+    
+    --> 2nd Approch
+    num   = 29
+    octal = ""
+    n     = num
+    while n > 0:
+        octal = str(n % 8) + octal
+        n    //= 8
+    print(f"Decimal : {num}")
+    print(f"Octal   : {octal}")
+
+## 27.Octal to decimal
+    --> 1st Approch
+    octal = "35"
+    decimal = int(octal, 8)       # Convert octal to decimal
+    print(f"Octal   : {octal}")
+    print(f"Decimal : {decimal}")
+
+    --> 2nd Approch
+    octal   = "35"
+    decimal = 0
+    power   = 0
+    for digit in reversed(octal):
+        decimal += int(digit) * (8 ** power)
+        power   += 1
+    print(f"Octal   : {octal}")
+    print(f"Decimal : {decimal}")
+
+## 28.Decimal to Hexadecimal --
+    --> 1st Approch
+    num = 255
+    hexadecimal = hex(num)[2:]    # Convert to hex (remove '0x' prefix)
+    print(f"Decimal     : {num}")
+    print(f"Hexadecimal : {hexadecimal}")
+
+    --> 2nd Approch
+    num         = 255
+    hexadecimal = ""
+    hex_chars   = "0123456789ABCDEF"
+    n           = num
+    while n > 0:
+        hexadecimal = hex_chars[n % 16] + hexadecimal
+        n          //= 16
+    print(f"Decimal     : {num}")
+    print(f"Hexadecimal : {hexadecimal}")
+
+## 29.Hexadecimal to Decimal
+    --> 1st Approch
+    hexadecimal = "FF"
+    decimal = int(hexadecimal, 16)  # Convert hex to decimal
+    print(f"Hexadecimal : {hexadecimal}")
+    print(f"Decimal     : {decimal}")
+
+    --> 2nd Approch
+    hexadecimal = "FF"
+    hex_chars   = "0123456789ABCDEF"
+    decimal     = 0
+    for digit in hexadecimal.upper():
+        decimal = decimal * 16 + hex_chars.index(digit)
+    print(f"Hexadecimal : {hexadecimal}")
+    print(f"Decimal     : {decimal}")
+
+## 30. Binary to Octal
+    # Binary to Octal
+    binary = "11101"
+    octal = oct(int(binary, 2))[2:]   # Convert binary to octal
+    print(f"Binary : {binary}")
+    print(f"Octal  : {octal}")
+
+## 31. Octal to Binary
+    # Octal to Binary
+    octal = "35"
+    binary = bin(int(octal, 8))[2:]   # Convert octal to binary
+    print(f"Octal  : {octal}")
+    print(f"Binary : {binary}")
+
+## 32.Binart to Hexadecimal
+    binary = "11101"
+    hexadecimal = hex(int(binary, 2))[2:].upper()  # Convert binary to hex
+    print(f"Binary      : {binary}")
+    print(f"Hexadecimal : {hexadecimal}")
+    
+## 33.Hexa to Binary
+    hexadecimal = "1D"
+    binary = bin(int(hexadecimal, 16))[2:]   # Convert hex to binary
+    print(f"Hexadecimal : {hexadecimal}")
+    print(f"Binary      : {binary}")
+
+## 34. Octal to Hexadecimal
+    octal = "35"
+    hexadecimal = hex(int(octal, 8))[2:].upper()  # Convert octal to hex
+    print(f"Octal       : {octal}")
+    print(f"Hexadecimal : {hexadecimal}")
+
+## 35 . Hexadecimal to Octal
+    hexadecimal = "1D"
+    octal = oct(int(hexadecimal, 16))[2:]  # Convert hex to octal
+    print(f"Hexadecimal : {hexadecimal}")
+    print(f"Octal       : {octal}")
+
+## 36. 
+
+    

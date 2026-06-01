@@ -455,7 +455,7 @@
     for num in arr:
         print(f"{num} is {'Even' if num % 2 == 0 else 'Odd'}")
 
-## Linear Serach -- O(1) - O(n)
+## 40. Linear Serach -- O(1) - O(n)
     def linear_search(arr, target):
         for i in range(len(arr)):
             if arr[i] == target:
@@ -471,7 +471,7 @@
     else:
         print(f"Target {target} not found in array")
 
-## Binary Search -- O(1) -- O(log n)
+## 41.Binary Search -- O(1) -- O(log n)
     def binary_search(arr, target):
         left  = 0
         right = len(arr) - 1
@@ -498,5 +498,89 @@
         print(f"Found at index : {result}")
     else:
         print(f"Target {target} not found in array")
+
+## 42.Pattern Matching -- Right angle Triangle
+    n = 5
+    for i in range(1, n + 1):
+        print("* " * i)
+
+## 43. Inverted Right angle Triangle
+    n = 5
+    for i in range(n, 0, -1):
+        print("* " * i)
+
+## 44. Right angle Triangle (Numbers)
+    n = 5
+    for i in range(1, n + 1):
+    for j in range(1, i + 1):
+        print(j, end = " ")
+    print()
+
+## 45. Right angle Triangle(Same numbers)
+    n = 5
+    for i in range(1, n + 1):
+        print((str(i) + " ") * i)
+
+## 46. Pyramid 
+    n = 5
+    for i in range(1, n + 1):
+        print( " " * ( n - i) + " * " * i)
+
+## 47. Inverted Pyramid
+    n = 5
+    for i in range(n, 0, -1):
+        print(" " * (n - i) + "* " * i)
+
+## 48.Diamond
+    n = 5
+    for i in range(1, n + 1):
+        print(" " * (n - i) + "* " * i)
+    for i in range(n - 1, 0, -1):
+        print(" " * (n - i) + "* " * i)
+
+## 49.Hollow Square
+    n = 5
+    for i in range(n):
+        for j in range(n):
+            if i == 0 or i == n-1 or j == 0 or j == n-1:
+                print("*", end=" ")
+            else:
+                print(" ", end=" ")
+       print()
+
+## 50.Hollow Square
+    n = 5
+    for i in range(1, n + 1):
+        for j in range(1, i + 1):
+            if j == 1 or j == i or i == n:
+                print("*", end=" ")
+            else:
+                print(" ", end=" ")
+        print()
+
+## 51. Floyd's Triangle
+    n = 5
+    num = 1
+    for i in range(1, n + 1):
+        for j in range(i):
+            print(num, end=" ")
+            num += 1
+    print()
+
+## 52. ButterFly 
+    n = 5
+    for i in range(1, n + 1):
+        print("* " * i + "  " * (n - i) * 2 + "* " * i)
+    for i in range(n, 0, -1):
+        print("* " * i + "  " * (n - i) * 2 + "* " * i)
+
+## 53. Invreted Right aligned triangle in Numbers
+    n = 5
+    for i in range(n, 0, -1):
+        for j in range(1, i + 1):
+            print(j, end=" ")
+    print()
+
+        
 
     

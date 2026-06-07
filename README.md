@@ -5,6 +5,7 @@
     reversed_s = ""
     for char in s:
       reversed_s = char + reversed_s
+    print(reversed_s)
 ## 2. Count the Characters in an Array -- Array
     arr = ["hello", "world", "python"]
     for word in arr:

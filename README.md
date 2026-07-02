@@ -582,6 +582,43 @@
             print(j, end=" ")
     print()
 
+## 54. Count and Print all voewls!
+    text = input("Enter a text: ")
+    vowels = "aeiouAEIOU"
+    count = 0
+    for i in text:
+        if i in vowels:
+            count = count + 1
+    print(count)
+
+## 55. Reverse the words of a given string
+    text = "how are you"
+    result = " "
+    words = text.split()
+    words.reverse()
+    result = result.join(words)
+    print(result)
+
+## 56. Length of a string without using len()
+    text = input("Enter a String: ")
+    count = 0
+    for i in text:
+        count = count + 1
+    print("Length of the String:", count)
+
+## 57. Check the list ascending without using Built in Method
+    numbers = [12,13,14]
+    is_ascending = True
+    for i in range(len(numbers) -1 ):
+        if numbers[i] > numbers[i + 1]:
+            is_ascending = False
+            break
+    if is_ascending:
+        print("List is Ascending order")
+    else:
+        print("List is not ascending order")
+    
+
         
 
     

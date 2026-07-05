@@ -617,8 +617,78 @@
         print("List is Ascending order")
     else:
         print("List is not ascending order")
-    
 
+## 58. Create a list containing the squares of all elements in the given list
+    L1 = [2,3,4,5]
+    L2 = []
+    for i in L1:
+        sq = i ** 2
+        L2.append(sq)
+    
+    print(L2)
+
+## 59. Search a Given number
+    numbers = [12, 13,11,212,34]
+    target = int(input("Enter a number to search: "))
+    for i in numbers:
+        if i  == target:
+            print("Number Found")
+            print("Number found index at", numbers.index(target))
+        break
+    
+    else:
+        print("Number not found")
+
+## 60. Convert a String to title case without using title()
+    text = input("Enter a String: ")
+    words = text.split()
+    result = ""
+    for word in words:
+        result = result + word[0].upper()  + word[1:].lower()
+    print(result)
+
+## 61. Calculate sum and average until user enters 0
+    total = 0
+    count = 0
+    while True:
+        num = int(input("Enter a number: "))
+    
+        if num == 0:
+            break
+    
+        total = total + num
+        count = count + 1
+    
+    average = total / count
+    
+    print("Sum:", total)
+    print("Average:", average)
+
+## 62. Remove the a Particular character from a String
+    text = input("Enter a String: ")
+    char = input("Enter the character to remove:")
+    result = ""
+    for i in text:
+        if i != char:
+            result = result + i
+    print("Updated string:", result) 
+
+## 63. Print all the unique combinations of 1,2,3 and 4 -- Nested loop
+    num = [1,2,3,4]
+    for i in num:
+        for j in num:
+            if i != j:
+                print(i,j)f
+
+## 64. Index postion of a particular character
+    text = input("Enter a String: ")
+    char = input("Enter a character:")
+    for i in range(len(text)):
+        if text[i] == char:
+            print(f"character found at index : {i}")
+            break
+    else:
+        print("Character not Found")
         
 
     

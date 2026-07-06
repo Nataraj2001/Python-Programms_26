@@ -440,7 +440,23 @@
 
     print(f"{num} is {'a Prime' if is_prime(num) else 'Not a Prime'} Number")
 
+    <--------------- 2nd Method ------------------------>
+     a = int(input())
+    b = int(input())
+    for n in range(a , b + 1):
+        if n < 2:
+            continue
+    
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            break
+    else:
+        print(n, end = " ")
+
+    
+
 ## 38. Fibonacci 
+    <--- 1st Method ------->
     def fibonacci(n):
         if n <= 0:
             return 0
@@ -449,7 +465,20 @@
         return fibonacci(n - 1) + fibonacci(n - 2)
 
     for i in range(10):
-        print(fibonacci(i), end=" ")   # 0 1 1 2 3 5 8 13 21 34
+        print(fibonacci(i), end=" ")   # 0 1 1 2 3 5 8 13 21 34 ---- OR---
+
+        <------ 2nd Method ----->
+
+        n = int(input("Enter value : ")
+        a = 0
+        b = 1
+        for i in range(n):
+            print(a)
+            c = a + b
+            a = b
+            b = c
+
+        
 
 ## 39.Check the Even and Odd number -- array
     arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -689,6 +718,60 @@
             break
     else:
         print("Character not Found")
-        
 
+## 65. Extract Username from a given email
+    email = input("Enter a Email id: ")
+    username = ""
+    for i in email:
+        if i == '@':
+            break
+        username = username + i
+    print("Username:", username)
+
+## 66. Writa a Program to print the Triangle pattern -- In nunbers
+    n = 1
+    for i in range(1, 5):
+        for j in range(i):
+            print(n, end = " ")
+            n = n + 1
+        
+        print()
+
+## 67. Write a program to print the following pattern
+    n = 5
+    for i in range(1, n + 1):
+        for j in range(1, i + 1):
+            print(j, end = " ") 
+        for j in range(i - 1, 0, -1):
+            print(j, end = " ")
+        print()
+
+## 68. Triangle pattern
+    n = 5
+    for i in range(1, n + 1):
+        print(" " * (n - i), end = "")
+        print("* " * (2 * i - 1))
+
+## 69. Greatest Commom Divisor of two numbers
+    a = int(input())
+    b = int(input())
+    while b != 0:
+        a, b = b, a % b
+    print(a)
+
+## 70. Print all the armstrong number within a given range
+    a = int(input())
+    b = int(input())
+    for num in range(a, b + 1):
+        num_str = str(num)
+        n = len(num_str)
+        result = 0
+        for digit_char in num_str:
+            digit = int(digit_char)
+            result = result + digit ** n
+        
+        if result == num:
+            print(num)
+
+## 71. 
     

@@ -810,4 +810,32 @@
     multiply = math.prod([a,b])
     print(multiply)
 
-## 73. 
+## 73. WAP that will reverse a Four digit number & also it checks whether the reverse it true.
+    num = input("Enter a valid digit: ")
+    if len(num) == 4 and num.isdigit():
+        reversed = (num[::-1])
+        print(reversed)
+    else:
+        print("Please enter valid digit")
+    
+    if reversed ==(num[::-1]):
+        print("Yes, Reverse is True")
+
+## 74. Write a program to convert celsius value to Fahrenheit
+    cel_temp = int(input("Enter a Value: "))
+    fahren_temp = 1.8*(cel_temp)
+    result = fahren_temp + 32
+    print("fahrenheit temp is :", result)
+
+## 75. WAP to check the Year is a leap year or not
+   year = int(input("Enter the Year: "))
+    def leap_year(year):
+        if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+            return True
+        else:
+            return False       
+    if leap_year(year):
+        print("Leap Year")   
+    else:
+        print("Not a Leap Year")
+        

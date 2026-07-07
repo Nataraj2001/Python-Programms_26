@@ -485,6 +485,16 @@
     for num in arr:
         print(f"{num} is {'Even' if num % 2 == 0 else 'Odd'}")
 
+    <---- 2nd Method ------>
+
+    count  = 0 
+    i = 1
+    while count < 25:
+    if i % 2 != 0:
+        print(i)
+        count += 1
+    i += 1
+
 ## 40. Linear Serach -- O(1) - O(n)
     def linear_search(arr, target):
         for i in range(len(arr)):
@@ -773,5 +783,31 @@
         if result == num:
             print(num)
 
-## 71. 
-    
+## 71. Reminder and Floor divison 
+    1. Keep only last element in the given number
+    n = 123
+    b = n % 10 
+    print(b) ---> Ouput ---> 3
+
+    2. Eliminate the last element and keep remaining element
+    n = 123 
+    b = n // 10
+    print(b) ---O/P ----> 12
+
+    3. Add the number without using built in method
+    n = 32
+    a = 32 * 10 + 1
+    b = a * 10 + 0
+    c = b * 10 + 1
+    print(a) ---> 321
+    print(b) ---> 3210
+    print(c) ---> 32101
+
+## 72. WAP that can multiply 2 numbers proided by the User without using * operator
+    import math
+    a = int(input("Enter a Number: "))
+    b = int(input("Enter a Number: "))
+    multiply = math.prod([a,b])
+    print(multiply)
+
+## 73. 
